@@ -29,11 +29,12 @@
         <td>{{ $student->nisn }}</td>
         <td>
           <a href="{{ route('students.edit', $student->id) }}" class="btn btn-warning btn-sm">Edit</a>
-          <form action="{{ route('students.destroy', $student->id) }}" method="POST" class="d-inline">
-            @csrf
-            @method('DELETE')
+          <form action="{{ route('students.destroy', $student->id) }}" method="POST" class="d-inline" 
+            onsubmit="return confirm('Apakah kamu yakin ingin menghapus data siswa ini?')">
+             @csrf
+             @method('DELETE')
             <button class="btn btn-danger btn-sm">Hapus</button>
-          </form>
+        </form>
         </td>
       </tr>
       @endforeach
