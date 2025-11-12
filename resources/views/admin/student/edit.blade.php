@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid">
   <h2>Edit Data Student</h2>
-  <form action="{{ route('students.update', $student->id) }}" method="POST">
+  <form action="{{ route('admin.students.update', $student->id) }}" method="POST">
     @csrf
     @method('PUT')
     <div class="form-group mb-3">
@@ -26,7 +26,7 @@
       <input type="text" name="nisn" value="{{ $student->nisn }}" class="form-control" required>
     </div>
     <button type="submit" class="btn btn-primary">Update</button>
-    <a href="{{ route('students.index') }}" class="btn btn-secondary">Kembali</a>
+    <a href="{{ route('admin.students.index') }}" class="btn btn-secondary">Kembali</a>
   </form>
 </div>
 @endsection

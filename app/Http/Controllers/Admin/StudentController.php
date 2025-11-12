@@ -39,7 +39,7 @@ class StudentController extends Controller
     ]);
 
             Student::create($request->all());
-            return redirect()->route('students.index')->with('success', 'Data berhasil disimpan!');
+            return redirect()->route('admin.students.index')->with('success', 'Data berhasil disimpan!');
     }
 
     /**
@@ -72,14 +72,16 @@ class StudentController extends Controller
     ]);
 
     $student->update($validated);
-    return redirect()->route('students.index')->with('success', 'Data siswa berhasil diperbarui');
+    return redirect()->route('admin.students.index')->with('success', 'Data siswa berhasil diperbarui');
 }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
-        //
-    }
+    public function destroy(Student $student)
+{
+    $student->delete();
+    return redirect()->route('admin.students.index')->with('success', 'Data siswa berhasil dihapus');
+}
+
 }
